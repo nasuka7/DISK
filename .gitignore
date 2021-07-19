@@ -20,9 +20,9 @@
 /frontend*.pem
 
 # debug
-/frontendnpm-debug.log*
-/frontendyarn-debug.log*
-/frontendyarn-error.log*
+/frontend/npm-debug.log*
+/frontend/yarn-debug.log*
+/frontend/yarn-error.log*
 
 # local env files
 /frontend.env.local
@@ -41,6 +41,7 @@
 
 # Ignore bundler config.
 /backend/.bundle
+/backend/vendor/bundle
 
 # Ignore the default SQLite database.
 /backend/db/*.sqlite3
