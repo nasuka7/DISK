@@ -1,4 +1,6 @@
-services:
+version: '3.7'
+
+services: 
   db:
     image: mysql:5.7
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
@@ -15,24 +17,22 @@ services:
     depends_on:
       - db
     build:
-      context: ./backend/
+      context: ./api/
       dockerfile: Dockerfile
     ports:
       - 3000:3000
     volumes:
-      - ./backend:/app
+      - ./api:/app
     command: rails server -b 0.0.0.0
-  front:
+  front: 
     build:
-      context: ./frontend/
+      context: ./front/
       dockerfile: Dockerfile
     volumes:
-      - ./frontend/app:/usr/src/app
-      - bundle_path:/bundle
-    command: "yarn dev"
+      - ./front/app:/usr/src/app
+    command: 'yarn dev'
     ports:
       - "8000:3000"
 volumes:
-  bundle_path:
   mysql-db:
     driver: local
